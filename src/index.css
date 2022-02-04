@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.me, .opponent{
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.active_cell:hover{
+  background-color: #eee;
+}
+
+.square{
+  border: 1px solid;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.square:hover{
+  background-color: #eee;
+}
+
+#root{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.board-head{
+  display: flex;
+  justify-content: start;
+}
+
+.board-head>.square{
+  border: none;
+  text-align: center;
+  padding: 1px;
+  cursor: default;
+}
+
+.board-head>.square{
+  background-color: #fff;
+}
+
+.board-fild{
+  display: flex;
+  justify-content: start;
+}

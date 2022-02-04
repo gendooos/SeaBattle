@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Desk from './SeaBattle/desk';
 import reportWebVitals from './reportWebVitals';
+import Board from './SeaBattle/Board';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Desk />
+    <Board user={'Me'} />
+    <Board user={'Opponent'}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
