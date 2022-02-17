@@ -45,6 +45,3 @@ export default class Square extends React.Component{
 
 
 
-// onPointerOver= {(e)=> x.map((elem,i)=>console.log(1))} 
-//                 onPointerLeave = {(e)=>e.target.style.border = '1px solid black'}
-{/*this.props.tableHeader.indexOf(this.props.letter)*/}
