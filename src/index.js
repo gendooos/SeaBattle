@@ -7,8 +7,8 @@ import Board from './SeaBattle/Board';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Board user={'Me'}/>
-    <Board user={'Opponent'}/>
+    <Board user={'Me'} className={'Me'}/>
+    <Board user={'Opponent'} className={'Opponent'}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

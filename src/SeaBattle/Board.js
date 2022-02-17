@@ -17,7 +17,6 @@ export default class Board extends React.Component {
         I: Array(10).fill(null),
         J: Array(10).fill(null),
       },
-      choosenShip: 4
     };
   }
 
@@ -29,16 +28,37 @@ export default class Board extends React.Component {
     const tableHeader = Object.keys(this.state.table);
 
     return (
-      <div className='board'>
+      <div className={'board'+ ` ${this.props.className}`}>
         <div style={{ textAlign: 'center' }}>{this.props.user}</div>
         {this.props.user == 'Me' ?
           <div className="ships">
-            <div className="linkor ship">
-              <input type="radio" id='ships' value='linkor' defaultChecked />
-              <label htmlFor='ships'>
+            <div className="x4 ship">
+              <input type="radio" id='x4' value='x4' name="ship" defaultChecked />
+              <label htmlFor='x4'>
                 <div className='ships_border'></div>
                 <div className='ships_border'></div>
                 <div className='ships_border'></div>
+                <div className='ships_border'></div>
+              </label>
+            </div>
+            <div className="x3 ship">
+              <input type="radio" id='x3' value='x3' name="ship" />
+              <label htmlFor='x3'>
+                <div className='ships_border'></div>
+                <div className='ships_border'></div>
+                <div className='ships_border'></div>
+              </label>
+            </div>
+            <div className="x2 ship">
+              <input type="radio" id='x2' value='x2' name="ship" />
+              <label htmlFor='x2'>
+                <div className='ships_border'></div>
+                <div className='ships_border'></div>
+              </label>
+            </div>
+            <div className="x1 ship">
+              <input type="radio" id='x1' value='x1' name="ship" />
+              <label htmlFor='x1'>
                 <div className='ships_border'></div>
               </label>
             </div>

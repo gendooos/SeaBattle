@@ -79,11 +79,6 @@ code {
   cursor: default; 
 }
 
-.linkor{
-  display: flex;
-  justify-content: start;
-}
-
 .ships_border{
   border: 1px solid;
   width: 20px;
@@ -98,6 +93,9 @@ code {
 }
 .ship{
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
 }
 
 label{

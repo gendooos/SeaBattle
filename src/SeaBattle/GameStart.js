@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function GameStart(tableHeader,choosenShip,letter,num,table,boolean) {
+export default function GameStart(tableHeader,letter,num,table,boolean) {
+	const choosenShip = +document.querySelector('input[name="ship"]:checked').value[1]
 	let counter= [];
 		for (let i = 0; i < choosenShip; i++) {
 			let letter1 = tableHeader[tableHeader.indexOf(letter)+i]

@@ -6,8 +6,27 @@ export default class Square extends React.Component{
         return(
             <div 
                 className={'square square_' + this.props.letter+this.props.num}
-                onMouseOver={(e)=>GameStart(this.props.tableHeader,this.props.choosenShip,e.target.classList[1][7],e.target.classList[1][8],this.props.table,true)}
-                onPointerLeave = {(e)=> GameStart(this.props.tableHeader,this.props.choosenShip,e.target.classList[1][7],e.target.classList[1][8],this.props.table,false)} 
+                onMouseOver={
+                    (e)=>{
+                        if (e.target.parentNode.parentNode.parentNode.parentNode.classList[1]==='Me'){
+                            if(e.target.classList[1].length < 10){
+                                GameStart(this.props.tableHeader,e.target.classList[1][7],e.target.classList[1][8],this.props.table,true)
+                            } else {
+                                GameStart(this.props.tableHeader,e.target.classList[1][7],'10',this.props.table,true)
+                            }
+                        }
+
+                    }
+                }
+                onPointerLeave = {(e)=> {
+                    if (e.target.parentNode.parentNode.parentNode.parentNode.classList[1]==='Me'){
+                            if(e.target.classList[1].length < 10){
+                                GameStart(this.props.tableHeader,e.target.classList[1][7],e.target.classList[1][8],this.props.table,false)
+                            } else {
+                                GameStart(this.props.tableHeader,e.target.classList[1][7],'10',this.props.table,false)
+                            }
+                        }
+                }} 
             >
                 {this.props.value}
             </div>
