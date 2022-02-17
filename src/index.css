@@ -88,7 +88,7 @@ code {
 .ships{
   position: absolute;
   top: 50%;
-  left: 0px;
+  left: 10px;
   transform: translateY(-50%);
 }
 .ship{
@@ -107,4 +107,16 @@ label{
 .hoverd{
   border: 1px solid red;
   background-color: red;
+}
+.hoverd_err{
+  border: 1px solid rgb(80, 79, 79);
+  background-color: rgb(80, 79, 79);
+}
+.rotate_btn{
+  padding: 5px;
+  border: 1px solid grey;
+  box-shadow: 2px 1px 1px grey;
+  cursor: pointer;
+  text-align: center;
+  margin: 5px auto;
 }

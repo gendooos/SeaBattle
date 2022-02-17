@@ -17,16 +17,23 @@ export default class Board extends React.Component {
         I: Array(10).fill(null),
         J: Array(10).fill(null),
       },
+      rotate:true
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  renderSquare(value,letter, num,choosenShip, tableHeader,table) {
-    return <Square value={value} letter={letter} num={num} choosenShip={choosenShip} tableHeader={tableHeader} table={table}/>;
+  renderSquare(value,letter, num,choosenShip, tableHeader,table,rotate) {
+    return <Square value={value} letter={letter} num={num} choosenShip={choosenShip} tableHeader={tableHeader} table={table} rotate={rotate}/>;
   }
-
+  handleClick() {
+    this.setState(prevState => ({
+        rotate: !prevState.rotate
+    }));
+  }
+  
   render() {
     const tableHeader = Object.keys(this.state.table);
-
+    
     return (
       <div className={'board'+ ` ${this.props.className}`}>
         <div style={{ textAlign: 'center' }}>{this.props.user}</div>
@@ -62,6 +69,7 @@ export default class Board extends React.Component {
                 <div className='ships_border'></div>
               </label>
             </div>
+            <div className="rotate_btn" onClick={this.handleClick}>Rotate ship</div>
           </div> : null}
 
         <div className="board-head">
@@ -70,10 +78,12 @@ export default class Board extends React.Component {
         </div>
         <div>
           {tableHeader.map((elem, index) => <div className="wrapper"><div className="num">{index + 1}</div>{tableHeader.map(e =>
-            <div className="wrapper">{this.renderSquare(this.state.table[e][index], e, index + 1, this.state.choosenShip,tableHeader,this.state.table)}</div>
+            <div className="wrapper">{this.renderSquare(this.state.table[e][index], e, index + 1, this.state.choosenShip,tableHeader,this.state.table, this.state.rotate)}</div>
           )}</div>)}
         </div>
       </div>
     );
   }
 }
+
+
