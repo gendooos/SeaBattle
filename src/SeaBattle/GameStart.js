@@ -8,7 +8,8 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 			let letter1 = tableHeader[tableHeader.indexOf(letter)+i]
 			if(boolean){
 				try {
-					document.querySelector('.square_'+letter1+num).classList.add('hoverd')
+					document.querySelector('.square_'+letter1+num).classList.add('hoverd');
+					counter.push(document.querySelector('.square_'+letter1+num))
 				} catch (error) {
 					document.querySelector('.square_'+letter+num).classList.add('hoverd_err')
 				 	document.querySelectorAll('.hoverd').forEach(e => {
@@ -21,6 +22,7 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 				document.querySelectorAll('.hoverd').forEach(e => {
 					e.classList.remove('hoverd_err')
 				})
+				counter=[]
 			}
 		}
 	} else {
