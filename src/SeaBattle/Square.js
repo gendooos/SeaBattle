@@ -38,6 +38,10 @@ export default class Square extends React.Component {
                 document.querySelector('.square_'+letter1+this.props.num).classList.add('picked');
                 console.log(<Board table={this.props.table}/>)
               }
+            } else{
+                if(GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip){
+                    document.querySelector('.square_'+this.props.letter+(+this.props.num+i)).classList.add('picked')
+                }
             }
           }
         }}

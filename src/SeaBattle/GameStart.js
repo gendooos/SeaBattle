@@ -30,6 +30,7 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 			if (boolean) {
 				try {
 				document.querySelector('.square_'+letter+(+num+i)).classList.add('hoverd')
+				counter.push(document.querySelector('.square_'+letter+(+num+i)))
 				} catch (error){
 					document.querySelector('.square_'+letter+num).classList.add('hoverd_err')
 				 	document.querySelectorAll('.hoverd').forEach(e => {
@@ -42,6 +43,7 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 				document.querySelectorAll('.hoverd').forEach(e => {
 					e.classList.remove('hoverd_err')
 				})
+				counter = []
 			}
 		}
 	}
