@@ -12,7 +12,6 @@ export default class Square extends React.Component {
             if (e.target.parentNode.parentNode.parentNode.parentNode.classList[1] === 'Me') {
               if (e.target.classList[1].length < 10) {
                 GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate)
-                console.log()
               } else {
                 GameStart(this.props.tableHeader, e.target.classList[1][7], '10', this.props.table, true, this.props.rotate)
               }
@@ -34,13 +33,17 @@ export default class Square extends React.Component {
           for (let i = 0; i < choosenShip; i++) {
             if (this.props.rotate) {
               let letter1 = this.props.tableHeader[this.props.tableHeader.indexOf(this.props.letter)+i]
-              if(GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip) {
+              if(e.target.classList[1].length < 10 && GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip) {
                 document.querySelector('.square_'+letter1+this.props.num).classList.add('picked');
-                console.log(<Board table={this.props.table}/>)
+                //console.log(this.props.table[this.props.letter][this.props.num]=1)
+              } else{
+                document.querySelector('.square_'+letter1+`10`).classList.add('picked');
               }
             } else{
-                if(GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip){
+                if(e.target.classList[1].length < 10 && GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip){
                     document.querySelector('.square_'+this.props.letter+(+this.props.num+i)).classList.add('picked')
+                } else{
+                  document.querySelector('.square_'+this.props.letter+`10`).classList.add('picked')
                 }
             }
           }
