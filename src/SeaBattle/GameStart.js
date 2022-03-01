@@ -6,24 +6,73 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 	if (rotate) {
 		for (let i = 0; i < choosenShip; i++) {
 			let letter1 = tableHeader[tableHeader.indexOf(letter)+i],
-				letter2 = tableHeader[tableHeader.indexOf(letter)-1]
+				  letter2 = tableHeader[tableHeader.indexOf(letter)-1],
+          letter3 = tableHeader[tableHeader.indexOf(letter)+choosenShip]
 			if(boolean){
-				try {
+				if(document.querySelector('.square_'+letter1+num)!==null) {
 					document.querySelector('.square_'+letter1+num).classList.add('hoverd');
 					counter.push(document.querySelector('.square_'+letter1+num))
-				} catch (error) {
+          if(document.querySelector('.square_'+letter1+(+num+1))!==null){
+            document.querySelector('.square_'+letter1+(+num+1)).classList.add('around_area')
+          }
+          if(document.querySelector('.square_'+letter1+(+num-1))!==null){
+            document.querySelector('.square_'+letter1+(+num-1)).classList.add('around_area')
+          }
+          if (document.querySelector('.square_'+letter3+num) !== null){
+            document.querySelector('.square_'+letter3+num).classList.add('around_area')
+          }
+          if(document.querySelector('.square_'+letter3+(+num+1)) !== null){
+            document.querySelector('.square_'+letter3+(+num+1)).classList.add('around_area')
+          }
+          if(document.querySelector('.square_'+letter3+(+num-1)) !== null){
+            document.querySelector('.square_'+letter3+(+num-1)).classList.add('around_area')
+          }
+					if (document.querySelector('.square_'+letter2+num)!==null) {
+						document.querySelector('.square_'+letter2+num).classList.add('around_area')
+					}
+          if(document.querySelector('.square_'+letter2+(+num+1)) !== null){
+            document.querySelector('.square_'+letter2+(+num+1)).classList.add('around_area')
+          }
+          if(document.querySelector('.square_'+letter2+(+num-1)) !== null){
+            document.querySelector('.square_'+letter2+(+num-1)).classList.add('around_area')
+          }
+				} else {
 					document.querySelector('.square_'+letter+num).classList.add('hoverd_err')
 				 	document.querySelectorAll('.hoverd').forEach(e => {
 						e.classList.add('hoverd_err')
 				 	})
 				}
-			}else{
+			} else {
 				document.querySelector('.square_'+letter1+num).classList.remove('hoverd')
 				document.querySelector('.square_'+letter+num).classList.remove('hoverd_err')
 				document.querySelectorAll('.hoverd').forEach(e => {
 					e.classList.remove('hoverd_err')
 				})
 				counter=[]
+        if(document.querySelector('.square_'+letter1+(+num+1))!==null){
+          document.querySelector('.square_'+letter1+(+num+1)).classList.remove('around_area')
+        }
+        if(document.querySelector('.square_'+letter1+(+num-1))!==null){
+          document.querySelector('.square_'+letter1+(+num-1)).classList.remove('around_area')
+        }
+        if (document.querySelector('.square_'+letter3+num) !== null){
+          document.querySelector('.square_'+letter3+num).classList.remove('around_area')
+        }
+        if(document.querySelector('.square_'+letter3+(+num+1)) !== null){
+          document.querySelector('.square_'+letter3+(+num+1)).classList.remove('around_area')
+        }
+        if(document.querySelector('.square_'+letter3+(+num-1)) !== null){
+          document.querySelector('.square_'+letter3+(+num-1)).classList.remove('around_area')
+        }
+				if (document.querySelector('.square_'+letter2+num)!==null){
+					document.querySelector('.square_'+letter2+num).classList.remove('around_area')
+				}
+        if(document.querySelector('.square_'+letter2+(+num+1)) !== null){
+          document.querySelector('.square_'+letter2+(+num+1)).classList.remove('around_area')
+        }
+        if(document.querySelector('.square_'+letter2+(+num-1)) !== null){
+          document.querySelector('.square_'+letter2+(+num-1)).classList.remove('around_area')
+        }
 			}
 		}
 	} else {
