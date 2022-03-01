@@ -35,21 +35,23 @@ export default class Square extends React.Component {
               let letter1 = this.props.tableHeader[this.props.tableHeader.indexOf(this.props.letter)+i]
               if(e.target.classList[1].length < 10 && GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip) {
                 document.querySelector('.square_'+letter1+this.props.num).classList.add('picked');
-                //console.log(this.props.table[this.props.letter][this.props.num]=1)
+                this.props.updateTable(letter1,this.props.num)
               } else{
-                document.querySelector('.square_'+letter1+`10`).classList.add('picked');
+                document.querySelector('.square_'+letter1+10).classList.add('picked');
+                this.props.updateTable(letter1,10)
               }
             } else{
                 if(e.target.classList[1].length < 10 && GameStart(this.props.tableHeader, e.target.classList[1][7], e.target.classList[1][8], this.props.table, true, this.props.rotate).length == choosenShip){
                     document.querySelector('.square_'+this.props.letter+(+this.props.num+i)).classList.add('picked')
+                    this.props.updateTable(this.props.letter,+this.props.num+i)
                 } else{
-                  document.querySelector('.square_'+this.props.letter+`10`).classList.add('picked')
+                  document.querySelector('.square_'+this.props.letter+10).classList.add('picked')
+                  this.props.updateTable(this.props.letter,10)
                 }
             }
           }
         }}
       >
-        {this.props.value}
       </div>
     )
   }

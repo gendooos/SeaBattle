@@ -21,14 +21,23 @@ export default class Board extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+  updateTable = (letter,num) =>{
+    this.setState(
+      prevState => {
+        prevState = prevState.table;
+        prevState[letter][num-1] = 1;
+        return {table: prevState}
+      })
+  }
 
   renderSquare(value,letter, num,choosenShip, tableHeader,table,rotate) {
-    return <Square value={value} letter={letter} num={num} choosenShip={choosenShip} tableHeader={tableHeader} table={table} rotate={rotate}/>;
+    return <Square value={value} letter={letter} num={num} choosenShip={choosenShip} tableHeader={tableHeader} table={table} rotate={rotate} updateTable={this.updateTable}/>;
   }
   handleClick() {
     this.setState(prevState => ({
         rotate: !prevState.rotate
     }));
+    console.log(this.state.table)
   }
   
   render() {

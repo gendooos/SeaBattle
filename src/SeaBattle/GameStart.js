@@ -5,7 +5,8 @@ export default function GameStart(tableHeader,letter,num,table,boolean,rotate) {
 	let counter= [];
 	if (rotate) {
 		for (let i = 0; i < choosenShip; i++) {
-			let letter1 = tableHeader[tableHeader.indexOf(letter)+i]
+			let letter1 = tableHeader[tableHeader.indexOf(letter)+i],
+				letter2 = tableHeader[tableHeader.indexOf(letter)-1]
 			if(boolean){
 				try {
 					document.querySelector('.square_'+letter1+num).classList.add('hoverd');
