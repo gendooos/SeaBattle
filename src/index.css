@@ -30,9 +30,6 @@ code {
   line-height: 40px;
   cursor: pointer;
 }
-/* .square:hover{
-  background-color: rgb(145, 143, 143);
-} */
 
 #root{
   position: absolute;
@@ -124,6 +121,6 @@ label{
   border: 1px solid blue;
   background: blue;
 }
-.around_area{
-  background: rgb(141, 141, 141);
+.around_area, .around_area_picked{
+  background: rgb(192, 192, 192);
 }

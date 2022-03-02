@@ -21,11 +21,11 @@ export default class Board extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  updateTable = (letter,num) =>{
+  updateTable = (letter,num,value) =>{
     this.setState(
       prevState => {
         prevState = prevState.table;
-        prevState[letter][num-1] = 1;
+        prevState[letter][num-1] = value;
         return {table: prevState}
       })
   }
